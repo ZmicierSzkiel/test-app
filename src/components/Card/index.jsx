@@ -1,24 +1,45 @@
-import { useSelector } from "react-redux"
-
 import styles from "./Card.module.scss"
 
 function Card({ id, picture, name, location, cell }) {
-  const users = useSelector((state) => state.users)
+  const fullName = `${name.first} ${name.last}`
+  const place = `${location.city}, ${location.state}, ${location.country}`
 
   return (
-    <div className="d-flex flex-wrap">
-      {users.length > 0 ? (
-        <div className={styles.card}>
-          <div key={id.value}>
-            <img src={picture.thumbnail} alt="user" />
-            {`${name.first} ${name.last}`}
-            {cell}
-            {`${location.city}, ${location.state}, ${location.country}`}
+    <div>
+      <div className={styles.card}>
+        <div
+          className={styles.cardColor}
+          style={{
+            backgroundColor:
+              `#` +
+              (Math.random().toString(16) + "000000")
+                .substring(2, 8)
+                .toUpperCase(),
+          }}
+        />
+        <div key={id.value}>
+          <div className={styles.flexCenter}>
+            <img src={picture.medium} alt="user" className={styles.logo} />
+          </div>
+          <div style={{ padding: "30px" }}>
+            <h5 className={styles.flexCenter}>{fullName}</h5>
+            <div className={styles.flexCenter}>{cell}</div>
+            <div className={styles.flexCenter}>
+              <p style={{ minHeight: "37px" }}>{place}</p>
+            </div>
+          </div>
+          <div className={styles.flexCenter}>
+            <button className="cu-p">addFollow</button>
+            <img
+              src="assets/chat.svg"
+              alt="chat"
+              width={23}
+              height={22}
+              className="cu-p ml-10"
+            />
           </div>
         </div>
-      ) : (
-        <div>Press the button to upload more clients...</div>
-      )}
+      </div>
     </div>
   )
 }
