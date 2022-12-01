@@ -4,9 +4,7 @@ import "./App.scss"
 function App() {
   return (
     <div className="App clear">
-      <div>
-        <Home />
-      </div>
+      <Home />
     </div>
   )
 }

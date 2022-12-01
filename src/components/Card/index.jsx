@@ -1,8 +1,8 @@
 import styles from "./Card.module.scss"
 
 function Card({ id, picture, name, location, cell }) {
-  const fullName = `${name.first} ${name.last}`
-  const place = `${location.city}, ${location.state}, ${location.country}`
+  const { first, last } = name
+  const { city, state, country } = location
 
   return (
     <div>
@@ -22,10 +22,14 @@ function Card({ id, picture, name, location, cell }) {
             <img src={picture.medium} alt="user" className={styles.logo} />
           </div>
           <div style={{ padding: "10px" }}>
-            <h5 className={styles.flexCenter}>{fullName}</h5>
+            <h5 className={styles.flexCenter}>
+              {first} {last}
+            </h5>
             <div className={styles.flexCenter}>{cell}</div>
             <div className={styles.flexCenter}>
-              <p style={{ minHeight: "40px" }}>{place}</p>
+              <p style={{ minHeight: "40px" }}>
+                {city}, {state}, {country}
+              </p>
             </div>
           </div>
           <div className={styles.flexCenter}>
