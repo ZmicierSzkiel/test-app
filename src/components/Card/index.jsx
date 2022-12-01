@@ -21,11 +21,11 @@ function Card({ id, picture, name, location, cell }) {
           <div className={styles.flexCenter}>
             <img src={picture.medium} alt="user" className={styles.logo} />
           </div>
-          <div style={{ padding: "30px" }}>
+          <div style={{ padding: "10px" }}>
             <h5 className={styles.flexCenter}>{fullName}</h5>
             <div className={styles.flexCenter}>{cell}</div>
             <div className={styles.flexCenter}>
-              <p style={{ minHeight: "37px" }}>{place}</p>
+              <p style={{ minHeight: "40px" }}>{place}</p>
             </div>
           </div>
           <div className={styles.flexCenter}>
